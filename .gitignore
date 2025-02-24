@@ -1,5 +1,6 @@
 # Miscellaneous
 *.class
+*.lock
 *.log
 *.pyc
 *.swp
@@ -32,8 +33,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-*.lock
-Podfile.lock
 
 # Symbolication related
 app.*.symbols
