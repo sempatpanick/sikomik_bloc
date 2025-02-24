@@ -47,6 +47,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   }
 
   void changeStateFavorites(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateFavorites: state));
   }
 }

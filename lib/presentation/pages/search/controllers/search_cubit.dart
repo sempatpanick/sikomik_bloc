@@ -65,6 +65,7 @@ class SearchCubit extends Cubit<SearchState> {
   }
 
   void changeStateSearch(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateSearch: state));
   }
 }

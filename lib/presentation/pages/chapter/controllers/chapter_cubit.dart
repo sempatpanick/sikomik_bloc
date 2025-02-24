@@ -283,10 +283,12 @@ class ChapterCubit extends Cubit<ChapterState> {
   }
 
   void changeStateChapter(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateChapter: state));
   }
 
   void changeStateComicDetail(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateComicDetail: state));
   }
 }

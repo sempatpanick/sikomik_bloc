@@ -107,6 +107,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   void changeLoadingState(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(loadingState: state));
   }
 }

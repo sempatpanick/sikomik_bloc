@@ -197,18 +197,22 @@ class ComicDetailCubit extends Cubit<ComicDetailState> {
   }
 
   void changeStateComic(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateComic: state));
   }
 
   void changeStateUserComic(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateUserComic: state));
   }
 
   void changeStateUserComicChaptersRead(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateUserComicChaptersRead: state));
   }
 
   void changeStateFavorite(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateFavorite: state));
   }
 }

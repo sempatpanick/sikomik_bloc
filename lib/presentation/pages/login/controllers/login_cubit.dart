@@ -96,6 +96,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void changeLoadingState(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(loadingState: state));
   }
 }

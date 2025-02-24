@@ -80,6 +80,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   void changeStateComics(RequestState state) {
+    if (isClosed) return;
     emit(this.state.copyWith(stateComics: state));
   }
 }
