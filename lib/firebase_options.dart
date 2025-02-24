@@ -46,48 +46,48 @@ class DefaultFirebaseOptions {
     messagingSenderId: '504193950692',
     projectId: 'sikomik-86156',
     authDomain: 'sikomik-86156.firebaseapp.com',
-    storageBucket: 'sikomik-86156.appspot.com',
+    storageBucket: 'sikomik-86156.firebasestorage.app',
     measurementId: 'G-4QB1BW99S2',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDwLqjzbgyz9IZDMERjP_pIq_b0SqZA6QE',
-    appId: '1:504193950692:android:3f6013d5d89c78a21fddf1',
+    appId: '1:504193950692:android:0f4389b1dd4efc481fddf1',
     messagingSenderId: '504193950692',
     projectId: 'sikomik-86156',
-    storageBucket: 'sikomik-86156.appspot.com',
+    storageBucket: 'sikomik-86156.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyD5eUmhjxTFN_6XW3qNnxOW2uZ8eY-aGMI',
-    appId: '1:504193950692:ios:bc2450abc2af61db1fddf1',
+    appId: '1:504193950692:ios:6dee3385fff7bfd21fddf1',
     messagingSenderId: '504193950692',
     projectId: 'sikomik-86156',
-    storageBucket: 'sikomik-86156.appspot.com',
+    storageBucket: 'sikomik-86156.firebasestorage.app',
     androidClientId: '504193950692-juj7uknam85pa798sukp2k305p9j0kk9.apps.googleusercontent.com',
-    iosClientId: '504193950692-b4f98vtjom5l2d752vv2spfrnuoo58nq.apps.googleusercontent.com',
-    iosBundleId: 'com.sempatpanick.sikomik',
+    iosClientId: '504193950692-mrvtl1q4i2keb2tk9914vi57tp53gger.apps.googleusercontent.com',
+    iosBundleId: 'com.sempatpanick.sikomikBloc',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyD5eUmhjxTFN_6XW3qNnxOW2uZ8eY-aGMI',
-    appId: '1:504193950692:ios:bc2450abc2af61db1fddf1',
+    appId: '1:504193950692:ios:6dee3385fff7bfd21fddf1',
     messagingSenderId: '504193950692',
     projectId: 'sikomik-86156',
-    storageBucket: 'sikomik-86156.appspot.com',
+    storageBucket: 'sikomik-86156.firebasestorage.app',
     androidClientId: '504193950692-juj7uknam85pa798sukp2k305p9j0kk9.apps.googleusercontent.com',
-    iosClientId: '504193950692-b4f98vtjom5l2d752vv2spfrnuoo58nq.apps.googleusercontent.com',
-    iosBundleId: 'com.sempatpanick.sikomik',
+    iosClientId: '504193950692-mrvtl1q4i2keb2tk9914vi57tp53gger.apps.googleusercontent.com',
+    iosBundleId: 'com.sempatpanick.sikomikBloc',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDfAFyo-4GrODqRV6YUHe3EnkepaEk4XcE',
-    appId: '1:504193950692:web:ced68378e10f817e1fddf1',
+    apiKey: 'AIzaSyBRGqjNakpLVE_G7mEusaEOKOHftgegksk',
+    appId: '1:504193950692:web:48b96e8d812924031fddf1',
     messagingSenderId: '504193950692',
     projectId: 'sikomik-86156',
     authDomain: 'sikomik-86156.firebaseapp.com',
-    storageBucket: 'sikomik-86156.appspot.com',
-    measurementId: 'G-LB82WWGSL2',
+    storageBucket: 'sikomik-86156.firebasestorage.app',
+    measurementId: 'G-HM6NTT482S',
   );
 
 }
