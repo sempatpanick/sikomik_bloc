@@ -10,9 +10,15 @@ import '../main/controllers/main_cubit.dart';
 import '../main/main_page.dart';
 
 class BrowserInAppPage extends StatefulWidget {
+  static const String routeAlias = "/browser";
   static const String routeName = "/browser/:path";
 
-  const BrowserInAppPage({super.key});
+  final Map<String, String> parameters;
+
+  const BrowserInAppPage({
+    super.key,
+    required this.parameters,
+  });
 
   @override
   State<BrowserInAppPage> createState() => _BrowserInAppPageState();
@@ -35,9 +41,8 @@ class _BrowserInAppPageState extends State<BrowserInAppPage> {
 
   @override
   void initState() {
-    final arguments = ModalRoute.of(context)?.settings.arguments as Map?;
-    if (arguments?['path'] != null) {
-      url = "$baseUrl/${arguments?['path']!}";
+    if (widget.parameters['path'] != null) {
+      url = "$baseUrl/${widget.parameters['path']!}";
     }
     pullToRefreshController = kIsWeb ||
             kIsWasm ||
@@ -69,6 +74,7 @@ class _BrowserInAppPageState extends State<BrowserInAppPage> {
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: false,
         leading: IconButton(

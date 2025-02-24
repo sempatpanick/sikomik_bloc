@@ -41,9 +41,11 @@ final router = GoRouter(
       builder: (context, state) => SettingsPage(),
     ),
     GoRoute(
-      name: BrowserInAppPage.routeName,
+      name: BrowserInAppPage.routeAlias,
       path: BrowserInAppPage.routeName,
-      builder: (context, state) => BrowserInAppPage(),
+      builder: (context, state) => BrowserInAppPage(
+        parameters: state.pathParameters,
+      ),
     ),
     GoRoute(
       name: LoginPage.routeName,

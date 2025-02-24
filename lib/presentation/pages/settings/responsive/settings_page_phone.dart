@@ -82,10 +82,10 @@ class SettingsPagePhone extends StatelessWidget {
                 const Divider(),
                 ListTile(
                   onTap: () => context.goNamed(
-                    BrowserInAppPage.routeName.replaceAll(
-                      "/:path",
-                      "/privacy-policy",
-                    ),
+                    BrowserInAppPage.routeAlias,
+                    pathParameters: {
+                      "path": "privacy-policy",
+                    },
                   ),
                   title: Text(
                     "Privacy & Police",
@@ -97,10 +97,10 @@ class SettingsPagePhone extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () => context.goNamed(
-                    BrowserInAppPage.routeName.replaceAll(
-                      "/:path",
-                      "/terms-and-conditions",
-                    ),
+                    BrowserInAppPage.routeAlias,
+                    pathParameters: {
+                      "path": "terms-and-conditions",
+                    },
                   ),
                   title: Text(
                     "Terms & Conditions",
