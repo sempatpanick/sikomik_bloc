@@ -39,9 +39,11 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     result.fold((l) {
       changeStateFavorites(RequestState.error);
     }, (r) {
-      emit(state.copyWith(
-        favorites: r.where((item) => item.comic != null).toList(),
-      ));
+      if (!isClosed) {
+        emit(state.copyWith(
+          favorites: r.where((item) => item.comic != null).toList(),
+        ));
+      }
       changeStateFavorites(RequestState.loaded);
     });
   }

@@ -59,6 +59,7 @@ class ComicDetailCubit extends Cubit<ComicDetailState> {
   }
 
   void setUserComic(UserComicEntity value) {
+    if (isClosed) return;
     emit(state.copyWith(userComic: value));
   }
 
@@ -70,9 +71,11 @@ class ComicDetailCubit extends Cubit<ComicDetailState> {
       changeStateComic(RequestState.error);
       failedSnackBar("", l.message);
     }, (r) {
-      emit(state.copyWith(
-        comic: r.data,
-      ));
+      if (!isClosed) {
+        emit(state.copyWith(
+          comic: r.data,
+        ));
+      }
       changeStateComic(RequestState.loaded);
     });
   }
@@ -94,9 +97,11 @@ class ComicDetailCubit extends Cubit<ComicDetailState> {
     result.fold((l) {
       changeStateUserComic(RequestState.error);
     }, (r) {
-      emit(state.copyWith(
-        userComic: r,
-      ));
+      if (!isClosed) {
+        emit(state.copyWith(
+          userComic: r,
+        ));
+      }
       changeStateUserComic(RequestState.loaded);
     });
   }
@@ -118,9 +123,11 @@ class ComicDetailCubit extends Cubit<ComicDetailState> {
     result.fold((l) {
       changeStateUserComicChaptersRead(RequestState.error);
     }, (r) {
-      emit(state.copyWith(
-        userComicChaptersRead: r,
-      ));
+      if (!isClosed) {
+        emit(state.copyWith(
+          userComicChaptersRead: r,
+        ));
+      }
       changeStateUserComicChaptersRead(RequestState.loaded);
     });
   }
@@ -152,9 +159,11 @@ class ComicDetailCubit extends Cubit<ComicDetailState> {
       changeStateFavorite(RequestState.error);
       failedSnackBar("", l.message);
     }, (r) {
-      emit(state.copyWith(
-        userComic: r,
-      ));
+      if (!isClosed) {
+        emit(state.copyWith(
+          userComic: r,
+        ));
+      }
       changeStateFavorite(RequestState.loaded);
     });
   }

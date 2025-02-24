@@ -116,6 +116,7 @@ class ChapterCubit extends Cubit<ChapterState> {
   }
 
   void changePath(String value) {
+    if (isClosed) return;
     emit(state.copyWith(path: value));
   }
 
@@ -187,16 +188,22 @@ class ChapterCubit extends Cubit<ChapterState> {
   }
 
   Future<void> getChapter({required String path}) async {
-    emit(state.copyWith(chapter: null));
+    if (!isClosed) {
+      emit(state.copyWith(chapter: null));
+    }
     final result = await getChapterCase.execute(path: path);
 
     result.fold((l) {
       changeStateChapter(RequestState.error);
       failedSnackBar("", l.message);
-      emit(state.copyWith(chapter: null));
+      if (!isClosed) {
+        emit(state.copyWith(chapter: null));
+      }
     }, (r) {
       changeStateChapter(RequestState.loaded);
-      emit(state.copyWith(chapter: r.data));
+      if (!isClosed) {
+        emit(state.copyWith(chapter: r.data));
+      }
     });
   }
 
@@ -213,7 +220,9 @@ class ChapterCubit extends Cubit<ChapterState> {
       changeStateComicDetail(RequestState.error);
       failedSnackBar("", l.message);
     }, (r) {
-      emit(state.copyWith(comic: r.data));
+      if (!isClosed) {
+        emit(state.copyWith(comic: r.data));
+      }
       changeStateComicDetail(RequestState.loaded);
     });
   }
@@ -234,7 +243,9 @@ class ChapterCubit extends Cubit<ChapterState> {
     );
 
     result.fold((l) {}, (r) {
-      emit(state.copyWith(userComic: r));
+      if (!isClosed) {
+        emit(state.copyWith(userComic: r));
+      }
       // comicDetailCubit?.setUserComic(r);
     });
   }

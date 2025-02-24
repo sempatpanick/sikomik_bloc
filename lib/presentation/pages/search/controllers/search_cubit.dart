@@ -26,12 +26,15 @@ class SearchCubit extends Cubit<SearchState> {
         );
 
   void changeQuery(String value) {
+    if (isClosed) return;
     emit(state.copyWith(query: value));
   }
 
   void clearQuery() {
     searchInputController.clear();
-    emit(state.copyWith(query: ""));
+    if (!isClosed) {
+      emit(state.copyWith(query: ""));
+    }
     changeStateSearch(RequestState.empty);
   }
 
@@ -59,7 +62,9 @@ class SearchCubit extends Cubit<SearchState> {
       changeStateSearch(RequestState.error);
       failedSnackBar("Failed", l.message);
     }, (r) {
-      emit(state.copyWith(comics: r.data ?? []));
+      if (!isClosed) {
+        emit(state.copyWith(comics: r.data ?? []));
+      }
       changeStateSearch(RequestState.loaded);
     });
   }

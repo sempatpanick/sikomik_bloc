@@ -54,11 +54,13 @@ class HomeCubit extends Cubit<HomeState> {
     changeStateComics(RequestState.loading);
 
     if (isClearComics) {
-      emit(state.copyWith(
-        comics: [],
-        currentPage: 0,
-        isLastPage: false,
-      ));
+      if (!isClosed) {
+        emit(state.copyWith(
+          comics: [],
+          currentPage: 0,
+          isLastPage: false,
+        ));
+      }
     }
 
     final result = await getLatestComicCase.execute(
@@ -71,11 +73,13 @@ class HomeCubit extends Cubit<HomeState> {
       failedSnackBar("", l.message);
     }, (r) {
       changeStateComics(RequestState.loaded);
-      emit(state.copyWith(
-        comics: r.data ?? [],
-        currentPage: state.currentPage + 1,
-        isLastPage: (r.data ?? []).isEmpty,
-      ));
+      if (!isClosed) {
+        emit(state.copyWith(
+          comics: r.data ?? [],
+          currentPage: state.currentPage + 1,
+          isLastPage: (r.data ?? []).isEmpty,
+        ));
+      }
     });
   }
 

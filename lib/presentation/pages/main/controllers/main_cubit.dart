@@ -49,6 +49,7 @@ class MainCubit extends Cubit<MainState> {
   }
 
   void changeSelectedIndexNav(int index) {
+    if (isClosed) return;
     emit(state.copyWith(
       selectedIndexNav: index,
     ));
@@ -58,10 +59,12 @@ class MainCubit extends Cubit<MainState> {
     final result = await getConfigurationCase.execute();
 
     result.fold((l) {
+      if (isClosed) return;
       emit(state.copyWith(
         configuration: null,
       ));
     }, (r) {
+      if (isClosed) return;
       emit(state.copyWith(
         configuration: r,
       ));
@@ -77,6 +80,7 @@ class MainCubit extends Cubit<MainState> {
         l.message,
       );
     }, (r) {
+      if (isClosed) return;
       emit(state.copyWith(
         user: r,
       ));
